@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/weather-test/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/weather-test/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/weather-test",
+  "projects": {
+    "weather-test": {
+      "type": "application",
+      "root": "apps/weather-test",
+      "entryFile": "main",
+      "sourceRoot": "apps/weather-test/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/weather-test/tsconfig.app.json"
+      }
+    },
+    "by-city": {
+      "type": "application",
+      "root": "apps/by-city",
+      "entryFile": "main",
+      "sourceRoot": "apps/by-city/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/by-city/tsconfig.app.json"
+      }
+    },
+    "next-5-days": {
+      "type": "application",
+      "root": "apps/next-5-days",
+      "entryFile": "main",
+      "sourceRoot": "apps/next-5-days/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/next-5-days/tsconfig.app.json"
+      }
+    }
+  }
+}
