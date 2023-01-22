@@ -8,7 +8,7 @@ export class Next5DaysController {
   constructor(private readonly next5DaysService: Next5DaysService) {}
 
   @EventPattern('search_next_5_days')
-  async searchNext5Days(@Body() data : Next5DaysDto) {    
+  async searchNext5Days(@Body() data : Next5DaysDto) {
     return this.next5DaysService.searchNext5Days(data);
   }
 }

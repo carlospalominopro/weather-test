@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "4d448962-68b0-44d8-860b-42ab15febf23",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25250527"
+	},
+	"item": [
+		{
+			"name": "search-weather",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\" : \"bogota\",\r\n    \"getNext5Days\" : false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/search-weather",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"search-weather"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-next-5-days",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"city\" : \"Bogota\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/search-next-5-days",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"search-next-5-days"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
