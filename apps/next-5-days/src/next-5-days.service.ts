@@ -17,6 +17,8 @@ export class Next5DaysService {
       headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
     });
 
+    console.log('Next-5-days Microservice - DONE');
+
     return {
       data: httpRequest.data,
     };

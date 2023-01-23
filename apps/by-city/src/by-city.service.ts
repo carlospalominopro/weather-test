@@ -14,6 +14,8 @@ export class ByCityService {
       headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
     });
 
+    console.log('By-city Microservice - DONE');
+    
     return {
       data: httpRequest.data,
     };
