@@ -1,0 +1,104 @@
+<div class="container mt-5">
+
+  <div class="col-12 mt-5 text-center">
+    <h1>Weather - Testing App</h1>
+  </div>
+
+  <div class="col-12 mt-5">
+    <form [formGroup]="formSearch" (ngSubmit)="findInfo()">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="input-group">
+            <input
+              type="text"
+              placeholder="Enter city/country"
+              role="searchbox"
+              class="form-control"
+              autocomplete="off"
+              formControlName="search"
+              minlength="3"
+            /><button type="submit" class="btn btn-primary" [disabled]="formSearch.invalid">Search</button>
+          </div>
+        </div>
+
+        <div class="col-12 text-center mt-2">
+          <div class="d-flex justify-content-center ">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="flexCheckDefault"
+              formControlName="check"
+            />
+            <label class="form-check-label" for="flexCheckDefault" class="ms-2">
+              Search 5-day forecast?
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-12 mt-2 mb-2 text-center" *ngIf="loading">
+
+    <div class="spinner-border text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="col-12 mt-3 mb-3" *ngIf="!loading && errorsFlag">
+    <div class="alert alert-danger" role="alert">
+      {{ errorsFlag }}
+    </div>
+  </div>
+
+
+  <ng-container *ngIf="!loading && !errorsFlag">
+
+    <div class="col-12" *ngIf="weather?.data">
+      <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+        <div class="card_w">
+          <div class="row text-center">
+            <div class="col-12 col-sm-12 col-md-4 mt-1">
+              <h2>{{weather.data?.current?.temp_c | number : '1.0-0'}}&deg;</h2>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 mt-1">
+              <img [src]="weather.data?.current?.condition?.icon" />
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 mt-1">
+              <h5>{{ weather.data?.current?.last_updated | date : 'MMM d, y' }}</h5>
+              <h3>{{ weather.data?.location?.name }}
+                <br>
+                <small>{{ weather.data?.location?.country }} </small>
+
+              </h3>
+              <span class="card_desc">{{ weather.data?.current?.condition?.text }}</span>
+            </div>
+          </div>
+          <div class="row mt-3 card_status text-center">
+            <div class="col-12 col-sm-12 col-md-4">
+              <img src="https://svgur.com/i/oHw.svg" />
+              <span>{{ weather.data?.current?.humidity }} %</span>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4">
+              <img src="https://svgur.com/i/oH_.svg" />
+              <span>{{ weather.data?.current?.pressure_mb }} mB</span>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4">
+              <img src="https://svgur.com/i/oKS.svg" />
+              <span>{{  weather.data?.current?.vis_km }} km/h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12" *ngIf="weather5Days?.length
+    ">
+      <app-next-days [forecastdays]="weather5Days"></app-next-days>
+    </div>
+
+  </ng-container>
+
+
+
+</div>

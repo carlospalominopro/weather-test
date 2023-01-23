@@ -1,0 +1,15 @@
+
+<div class="col-12 mt-2 mb-2">
+  <div class="form-check form-switch d-flex justify-content-center">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (change)="orderData()" [(ngModel)]="orderBy">
+    <label class="form-check-label ms-1" for="flexSwitchCheckDefault">Order by {{ orderBy ? 'ASC' : 'DESC' }}</label>
+  </div>
+</div>
+
+<div class="forecast row justify-content-center align-items-center mt-3 text-center mb-4">
+  <div class="col-12 col-sm-12 col-md-3 mt-1" *ngFor="let item of forecastdays">
+      <span>{{ item.date | date : 'MMM d' }}</span> <br>
+      <img [src]="item.day?.condition?.icon">
+      <span>{{item.day?.avgtemp_c | number : '1.0-0'}}&deg;</span>
+  </div>
+</div>
