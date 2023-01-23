@@ -16,6 +16,8 @@ BACKEND
 
   $ cd weather-test
   
+  $ npm install -g @angular/cli
+  $ npm install -g @nestjs/cli
   $ npm install
 
   /* Start backend main app, by-city microservice, next-5-days microservice */
@@ -32,7 +34,7 @@ FRONTEND
   $ npm start
 ```
 
-## API Reference
+## API BACKEND - Reference
 
 ### Note : The use of POSTMAN is recommended, in root folder exists a file named test.postman_collection.json
 -------------------------------------------------
